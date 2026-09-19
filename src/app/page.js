@@ -7,7 +7,7 @@ export default async function Home({ searchParams }) {
   const sectorFilter = searchParams?.sector || '';
   const regionFilter = searchParams?.region || '';
 
-  // Curated database featuring verified active links, expected salary, company rating, and type (MNC/Startup/Public)
+  // Verified active direct-employer database with salaries & company ratings
   const allJobs = [
     {
       id: 1,
@@ -26,7 +26,7 @@ export default async function Home({ searchParams }) {
     },
     {
       id: 2,
-      title: "Exploration Geologist (Upstream)",
+      title: "Exploration Geologist (Upstream Oil & Gas)",
       company: "Oil & Natural Gas Corporation (ONGC)",
       location: "Mumbai, India",
       region: "India",
@@ -145,12 +145,12 @@ export default async function Home({ searchParams }) {
   const regions = ['India', 'APAC', 'Middle East', 'Europe'];
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8 text-slate-100">
-      {/* Minimalist Top Header & Navigation Tabs */}
+    <div className="max-w-6xl mx-auto px-4 py-8">
+      {/* Navigation Switcher Bar */}
       <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8 pb-6 border-b border-slate-800">
         <div>
-          <span className="text-xs font-mono tracking-widest text-teal-400 uppercase">EarthScienceJobs.com</span>
-          <h1 className="text-xl font-bold tracking-tight text-white">Global Geoscience Portal</h1>
+          <span className="text-xs font-mono tracking-widest text-teal-400 uppercase">Global Portal</span>
+          <h1 className="text-xl font-bold tracking-tight text-white">Geoscience & Scholarship Hub</h1>
         </div>
         <div className="flex items-center gap-2 bg-slate-900 p-1.5 rounded-xl border border-slate-800">
           <Link href="/?tab=jobs" className={`px-4 py-1.5 rounded-lg text-xs font-bold transition ${activeTab === 'jobs' ? 'bg-teal-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>
@@ -173,7 +173,7 @@ export default async function Home({ searchParams }) {
               Verified Industrial Geoscience Careers
             </h2>
             <p className="text-slate-400 text-xs">
-              Direct links to official company portals. Zero broken links, zero platform fluff.
+              Direct official employer links with company ratings, salary ranges, and zero dead pages.
             </p>
           </div>
 
