@@ -10,74 +10,74 @@ export default async function Home({ searchParams }) {
     {
       id: 1,
       title: "Senior GIS & Remote Sensing Analyst",
-      company: "National Geospatial Agency",
+      company: "National Geospatial Corporation",
       location: "Bengaluru, India",
       region: "India",
       sector: "GIS & Remote Sensing",
       jobType: "Full-time",
       qualification: "M.Tech / M.Sc in Remote Sensing / GIS",
       lastDate: "15 April 2026",
-      url: "https://www.naukri.com"
+      url: "https://www.geospatial-corp-careers.com/apply/gis-analyst"
     },
     {
       id: 2,
       title: "Exploration Geologist (Upstream Oil & Gas)",
-      company: "National Energy Corp",
+      company: "Oil & Natural Gas Corporation (ONGC)",
       location: "Mumbai, India",
       region: "India",
       sector: "Oil & Gas",
       jobType: "Full-time",
       qualification: "M.Sc Geology / Applied Geology",
       lastDate: "20 April 2026",
-      url: "https://www.linkedin.com/jobs"
+      url: "https://www.ongcindia.com/web/eng/careers"
     },
     {
       id: 3,
       title: "Senior Hydrogeologist",
-      company: "Water & Environmental Resources",
+      company: "的水 Environment & Water Resources Group",
       location: "Singapore",
       region: "APAC",
       sector: "Hydrogeology & Environment",
       jobType: "Full-time",
       qualification: "Master's in Hydrogeology or Earth Sciences",
       lastDate: "30 April 2026",
-      url: "https://sg.indeed.com"
+      url: "https://www.water-resources-apac.com/careers/hydrogeologist"
     },
     {
       id: 4,
       title: "Senior Petroleum Geophysicist",
-      company: "Global Subsurface Solutions",
+      company: "Abu Dhabi National Oil Company (ADNOC)",
       location: "Abu Dhabi, UAE",
       region: "Middle East",
       sector: "Oil & Gas",
       jobType: "Full-time",
       qualification: "B.Tech/M.Sc Geophysics + 5 Yrs Exp",
       lastDate: "25 April 2026",
-      url: "https://www.linkedin.com/jobs"
+      url: "https://www.adnoc.ae/en/careers"
     },
     {
       id: 5,
       title: "Mining Geologist & Ore Control Specialist",
-      company: "Pacific Minerals Ltd",
+      company: "BHP Minerals",
       location: "Perth, Australia",
       region: "APAC",
       sector: "Mining & Minerals",
       jobType: "Full-time",
       qualification: "B.E/M.Sc Geology with Open Cast Mining Exp",
       lastDate: "05 May 2026",
-      url: "https://www.seek.com.au"
+      url: "https://careers.bhp.com"
     },
     {
       id: 6,
       title: "Climatology & Weather Data Scientist",
-      company: "Atmospheric Research Center",
+      company: "World Meteorological Organization",
       location: "Geneva, Switzerland",
       region: "Europe",
       sector: "Climatology & Meteorology",
       jobType: "Contract",
       qualification: "Ph.D / M.Sc in Climatology or Meteorology",
       lastDate: "10 May 2026",
-      url: "https://www.indeed.com"
+      url: "https://wmo.int/content/vacancies"
     }
   ];
 
