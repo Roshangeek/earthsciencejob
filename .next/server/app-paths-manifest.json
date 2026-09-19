@@ -1,0 +1,5 @@
+{
+  "/_not-found": "app/_not-found.js",
+  "/api/cron/fetch-jobs/route": "app/api/cron/fetch-jobs/route.js",
+  "/page": "app/page.js"
+}
