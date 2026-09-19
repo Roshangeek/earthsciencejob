@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
+import { prisma } from '../../../../lib/prisma';
 
 export async function GET(request) {
   const authHeader = request.headers.get('authorization');
@@ -8,8 +8,6 @@ export async function GET(request) {
   }
 
   try {
-    // Sample automated data injection pipeline 
-    // (You can replace or expand this array with your custom Python/RSS scraper parsers)
     const fetchedJobs = [
       {
         title: "Senior Exploration Geologist",
@@ -53,4 +51,3 @@ export async function GET(request) {
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }
 }
-
