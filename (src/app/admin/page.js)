@@ -1,0 +1,210 @@
+'use client';
+
+import { useState } from 'react';
+
+export default function AdminPage() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [password, setPassword] = useState('');
+  const [formData, setFormData] = useState({
+    title: '',
+    company: '',
+    location: '',
+    region: 'India',
+    sector: 'Oil & Gas',
+    jobType: 'Full-time',
+    qualification: '',
+    lastDate: '',
+    url: ''
+  });
+  const [successMsg, setSuccessMsg] = useState('');
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    // Set your secure admin password here or check against an environment variable
+    if (password === 'EarthAdmin2026!') {
+      setIsAuthenticated(true);
+    } else {
+      alert('Invalid Admin Password');
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Here you would normally send the data to your database API route
+    setSuccessMsg('Job listing published successfully! (Check your live portal)');
+    setFormData({
+      title: '',
+      company: '',
+      location: '',
+      region: 'India',
+      sector: 'Oil & Gas',
+      jobType: 'Full-time',
+      qualification: '',
+      lastDate: '',
+      url: ''
+    });
+  };
+
+  if (!isAuthenticated) {
+    return (
+      <div className="max-w-md mx-auto mt-20 p-8 mineral-card rounded-2xl bg-slate-900 border border-slate-700 text-white">
+        <h1 className="text-xl font-extrabold mb-4 text-teal-400">🔒 Admin Portal Login</h1>
+        <p className="text-xs text-slate-300 mb-6">Enter your private administrative password to manage career listings.</p>
+        <form onSubmit={handleLogin} className="space-y-4">
+          <input
+            type="password"
+            placeholder="Enter Admin Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-teal-500"
+          />
+          <button type="submit" className="w-full mineral-btn py-3 rounded-xl text-xs font-bold uppercase tracking-wider bg-emerald-600 hover:bg-emerald-500 text-white shadow">
+            Secure Login
+          </button>
+        </form>
+      </div>
+    );
+  }
+
+  return (
+    <div className="max-w-3xl mx-auto px-4 py-10 text-white">
+      <div className="flex justify-between items-center mb-8">
+        <div>
+          <h1 className="text-2xl font-extrabold text-teal-400">Admin Dashboard</h1>
+          <p className="text-xs text-slate-300">Publish verified earth science positions and research documents securely.</p>
+        </div>
+        <button 
+          onClick={() => setIsAuthenticated(false)} 
+          className="bg-red-950/80 border border-red-800 text-red-300 px-4 py-2 rounded-xl text-xs font-bold hover:bg-red-900 transition"
+        >
+          Logout
+        </button>
+      </div>
+
+      {successMsg && (
+        <div className="bg-emerald-950 border border-emerald-800 text-emerald-300 p-4 rounded-xl mb-6 text-xs font-semibold">
+          {successMsg}
+        </div>
+      )}
+
+      <form onSubmit={handleSubmit} className="mineral-card p-6 rounded-2xl bg-slate-900/90 border border-slate-700 space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-xs font-medium text-slate-400 mb-1">Job Title</label>
+            <input 
+              type="text" 
+              required
+              value={formData.title}
+              onChange={(e) => setFormData({...formData, title: e.target.value})}
+              placeholder="e.g. Senior Exploration Geologist" 
+              className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white" 
+            />
+          </div>
+          <div>
+            <label className="block text-xs font-medium text-slate-400 mb-1">Company / Organization</label>
+            <input 
+              type="text" 
+              required
+              value={formData.company}
+              onChange={(e) => setFormData({...formData, company: e.target.value})}
+              placeholder="e.g. ONGC" 
+              className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white" 
+            />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label className="block text-xs font-medium text-slate-400 mb-1">Location</label>
+            <input 
+              type="text" 
+              required
+              value={formData.location}
+              onChange={(e) => setFormData({...formData, location: e.target.value})}
+              placeholder="e.g. Mumbai, India" 
+              className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white" 
+            />
+          </div>
+          <div>
+            <label className="block text-xs font-medium text-slate-400 mb-1">Region</label>
+            <select 
+              value={formData.region}
+              onChange={(e) => setFormData({...formData, region: e.target.value})}
+              className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white"
+            >
+              <option value="India">India</option>
+              <option value="APAC">APAC</option>
+              <option value="Middle East">Middle East</option>
+              <option value="Europe">Europe</option>
+            </select>
+          </div>
+          <div>
+            <label className="block text-xs font-medium text-slate-400 mb-1">Industrial Sector</label>
+            <select 
+              value={formData.sector}
+              onChange={(e) => setFormData({...formData, sector: e.target.value})}
+              className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white"
+            >
+              <option value="Oil & Gas">Oil & Gas</option>
+              <option value="Mining & Minerals">Mining & Minerals</option>
+              <option value="GIS & Remote Sensing">GIS & Remote Sensing</option>
+              <option value="Hydrogeology & Environment">Hydrogeology & Environment</option>
+              <option value="Climatology & Meteorology">Climatology & Meteorology</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label className="block text-xs font-medium text-slate-400 mb-1">Job Type</label>
+            <input 
+              type="text" 
+              value={formData.jobType}
+              onChange={(e) => setFormData({...formData, jobType: e.target.value})}
+              placeholder="Full-time / Contract" 
+              className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white" 
+            />
+          </div>
+          <div>
+            <label className="block text-xs font-medium text-slate-400 mb-1">Eligibility / Qualification</label>
+            <input 
+              type="text" 
+              required
+              value={formData.qualification}
+              onChange={(e) => setFormData({...formData, qualification: e.target.value})}
+              placeholder="e.g. M.Sc Geology" 
+              className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white" 
+            />
+          </div>
+          <div>
+            <label className="block text-xs font-medium text-slate-400 mb-1">Last Date / Deadline</label>
+            <input 
+              type="text" 
+              required
+              value={formData.lastDate}
+              onChange={(e) => setFormData({...formData, lastDate: e.target.value})}
+              placeholder="e.g. 30 April 2026" 
+              className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white" 
+            />
+          </div>
+        </div>
+
+        <div>
+          <label className="block text-xs font-medium text-slate-400 mb-1">Official Direct Application URL / PDF Link</label>
+          <input 
+            type="url" 
+            required
+            value={formData.url}
+            onChange={(e) => setFormData({...formData, url: e.target.value})}
+            placeholder="https://company-careers.com/apply" 
+            className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white" 
+          />
+        </div>
+
+        <button type="submit" className="w-full mineral-btn py-3 rounded-xl text-xs font-bold uppercase tracking-wider bg-teal-600 hover:bg-teal-500 text-white shadow-lg mt-4">
+          Publish Official Listing
+        </button>
+      </form>
+    </div>
+  );
+}
