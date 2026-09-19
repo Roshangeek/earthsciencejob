@@ -2,25 +2,17 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-:root {
-  --rock-dark: #1e252b;
-  --mineral-accent: #0f766e;
-  --copper-accent: #b45309;
-  --bg-earth: #0f172a;
-}
-
 body {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  color: #f8fafc;
+  background: #0f172a;
+  color: #f1f5f9;
   font-family: system-ui, -apple-system, sans-serif;
   min-height: 100vh;
 }
 
 .mineral-card {
-  background: rgba(30, 41, 59, 0.7);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  background: #1e293b;
+  border: 1px solid #334155;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
 }
 
 .mineral-btn {
@@ -31,11 +23,10 @@ body {
 
 .mineral-btn:hover {
   background: linear-gradient(135deg, #14b8a6 0%, #059669 100%);
-  transform: translateY(-1px);
 }
 
 .badge-region {
-  background: rgba(180, 83, 9, 0.2);
-  color: #fcd34d;
-  border: 1px solid rgba(180, 83, 9, 0.4);
+  background: rgba(180, 83, 9, 0.3);
+  color: #fde047;
+  border: 1px solid rgba(180, 83, 9, 0.5);
 }
