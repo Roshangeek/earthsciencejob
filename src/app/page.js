@@ -97,7 +97,7 @@ export default async function Home({ searchParams }) {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Clean Member Notification Bar */}
-      <div className="mineral-card p-4 rounded-xl mb-8 flex flex-col sm:flex-row justify-between items-center gap-3 border border-slate-700 bg-slate-900/90">
+      <div className="mineral-card p-4 rounded-xl mb-8 flex flex-col sm:flex-row justify-between items-center gap-3 border border-slate-700 bg-slate-900/90 text-white">
         <div>
           <span className="text-sm font-bold text-teal-400">EarthScienceJobs.com 🌍</span>
           <p className="text-xs text-slate-300">Official curated portal for professional geoscientists and spatial experts worldwide.</p>
@@ -112,19 +112,19 @@ export default async function Home({ searchParams }) {
         <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-2 text-white">
           Specialized Earth Science Careers
         </h1>
-        <p className="text-slate-300 text-sm">
+        <p className="text-slate-200 text-sm">
           Browse verified career opportunities categorized by professional industrial sectors.
         </p>
       </div>
 
       {/* Region Filter Bar */}
       <div className="flex flex-wrap justify-center gap-2 mb-4">
-        <span className="text-xs font-semibold text-slate-400 self-center mr-1">Region:</span>
-        <Link href="/" className={`px-3 py-1 rounded-md text-xs font-bold transition ${!regionFilter ? 'bg-amber-600 text-white' : 'bg-slate-800 text-slate-300 border border-slate-700'}`}>
+        <span className="text-xs font-semibold text-slate-300 self-center mr-1">Region:</span>
+        <Link href="/" className={`px-3 py-1 rounded-md text-xs font-bold transition ${!regionFilter ? 'bg-amber-600 text-white' : 'bg-slate-800 text-slate-200 border border-slate-700'}`}>
           All
         </Link>
         {regions.map((reg) => (
-          <Link key={reg} href={`/?region=${reg}${sectorFilter ? `&sector=${encodeURIComponent(sectorFilter)}` : ''}`} className={`px-3 py-1 rounded-md text-xs font-bold transition ${regionFilter === reg ? 'bg-amber-600 text-white' : 'bg-slate-800 text-slate-300 border border-slate-700'}`}>
+          <Link key={reg} href={`/?region=${reg}${sectorFilter ? `&sector=${encodeURIComponent(sectorFilter)}` : ''}`} className={`px-3 py-1 rounded-md text-xs font-bold transition ${regionFilter === reg ? 'bg-amber-600 text-white' : 'bg-slate-800 text-slate-200 border border-slate-700'}`}>
             {reg}
           </Link>
         ))}
@@ -132,48 +132,48 @@ export default async function Home({ searchParams }) {
 
       {/* Industrial Sector Filter Pills */}
       <div className="flex flex-wrap justify-center gap-2 mb-10">
-        <Link href={`/${regionFilter ? `?region=${regionFilter}` : ''}`} className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition ${!sectorFilter ? 'bg-teal-600 text-white' : 'bg-slate-800 text-slate-300 border border-slate-700'}`}>
+        <Link href={`/${regionFilter ? `?region=${regionFilter}` : ''}`} className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition ${!sectorFilter ? 'bg-teal-600 text-white' : 'bg-slate-800 text-slate-200 border border-slate-700'}`}>
           All Sectors
         </Link>
         {sectors.map((sec) => (
-          <Link key={sec} href={`/?sector=${encodeURIComponent(sec)}${regionFilter ? `&region=${regionFilter}` : ''}`} className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition ${sectorFilter === sec ? 'bg-teal-600 text-white' : 'bg-slate-800 text-slate-300 border border-slate-700'}`}>
+          <Link key={sec} href={`/?sector=${encodeURIComponent(sec)}${regionFilter ? `&region=${regionFilter}` : ''}`} className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition ${sectorFilter === sec ? 'bg-teal-600 text-white' : 'bg-slate-800 text-slate-200 border border-slate-700'}`}>
             {sec}
           </Link>
         ))}
       </div>
 
-      {/* FreeJobAlert Style Job Feed (No Source Mentioned) */}
+      {/* Job Feed */}
       <div className="space-y-4 max-w-3xl mx-auto">
         {jobs.length === 0 ? (
-          <div className="mineral-card p-6 rounded-xl text-center">
-            <p className="text-slate-400 text-xs">No active listings found for this specific sector filter.</p>
+          <div className="mineral-card p-6 rounded-xl text-center bg-slate-900 text-white">
+            <p className="text-slate-300 text-xs">No active listings found for this specific sector filter.</p>
           </div>
         ) : (
           jobs.map((job) => (
-            <div key={job.id} className="mineral-card p-5 rounded-2xl transition hover:border-teal-500/40 bg-slate-900/70 border border-slate-800">
+            <div key={job.id} className="mineral-card p-5 rounded-2xl transition bg-slate-900/90 border border-slate-700 text-white shadow-lg">
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 mb-3">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-[10px] font-bold uppercase bg-teal-950 text-teal-300 px-2 py-0.5 rounded border border-teal-800">{job.sector}</span>
-                    <span className="text-[10px] font-bold uppercase badge-region px-2 py-0.5 rounded">{job.region}</span>
+                    <span className="text-[10px] font-bold uppercase badge-region px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800">{job.region}</span>
                   </div>
                   <h2 className="text-sm font-bold text-white">{job.title}</h2>
                   <p className="text-xs text-teal-400 font-medium">{job.company} — {job.location}</p>
                 </div>
-                <a href={job.url} target="_blank" rel="noopener noreferrer" className="mineral-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-center w-full md:w-auto bg-emerald-600 hover:bg-emerald-500 text-white">
+                <a href={job.url} target="_blank" rel="noopener noreferrer" className="mineral-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-center w-full md:w-auto bg-emerald-600 hover:bg-emerald-500 text-white shadow">
                   Apply / Official Site ↗
                 </a>
               </div>
 
-              {/* FreeJobAlert Metadata Table Style */}
-              <div className="bg-slate-950/80 rounded-xl p-3 border border-slate-800/80 text-xs space-y-1 text-slate-300">
-                <div className="flex justify-between border-b border-slate-800/80 pb-1">
+              {/* Metadata Details Style */}
+              <div className="bg-slate-950 rounded-xl p-3 border border-slate-800 text-xs space-y-1 text-slate-300">
+                <div className="flex justify-between border-b border-slate-800 pb-1">
                   <span className="text-slate-400">Eligibility / Qualification:</span>
-                  <span className="font-semibold text-slate-200 text-right">{job.qualification}</span>
+                  <span className="font-semibold text-white text-right">{job.qualification}</span>
                 </div>
-                <div className="flex justify-between border-b border-slate-800/80 pb-1">
+                <div className="flex justify-between border-b border-slate-800 pb-1">
                   <span className="text-slate-400">Job Type:</span>
-                  <span className="font-semibold text-slate-200">{job.jobType}</span>
+                  <span className="font-semibold text-white">{job.jobType}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-400">Last Date / Deadline:</span>
